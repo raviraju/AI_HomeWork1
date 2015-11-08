@@ -1,0 +1,32 @@
+3
+UCS
+AA
+BA
+CA DA
+3
+AA BA 10 1 1-2
+AA CA 2 2 3-4 5-6
+CA BA 4 0
+0
+
+UCS
+S
+G
+A B
+4
+S A 2 0
+S B 1 0
+B G 1 1 1-2
+A B 2 0
+0
+
+UCS
+A
+C
+B D
+4
+A B 1 0
+A D 2 0
+D B 3 0
+B C 2 1 0-3
+0

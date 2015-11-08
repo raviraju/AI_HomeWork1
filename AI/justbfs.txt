@@ -1,0 +1,65 @@
+void bfs_srch(string source, set<string>& destinationNodes, map<string, set<string> >& adjacenyMap, int startTime, ofstream& ofs)
+{
+	int bfs_stepCost = 1;
+	cout << "Run BFS Search on source " << source << endl;
+	node srcNode(source, NULL, 0);
+	if (goal_test(srcNode.state, destinationNodes))
+	{
+		cout << "Goal is found at srcNode " << srcNode.state << endl;		
+		//write result to output file
+		ofs << srcNode.state << " " << startTime << endl;
+		return;
+	}
+	queue<node*> frontier;
+	set<string> visited;	
+	frontier.push(&srcNode);visited.insert(srcNode.state);
+	set<string> explored;
+	while(1)
+	{
+		if(frontier.empty())
+		{
+			//failure
+			cout << "None of Destination can be reached" << endl;
+			//write "None" to output file
+			ofs << "None" << endl;
+			return;			
+		}
+		node* parentNodePtr = frontier.front();frontier.pop();
+		explored.insert(parentNodePtr->state);
+		map<string, set<string> >::iterator adjacenyMapItr = adjacenyMap.find(parentNodePtr->state);
+		if(adjacenyMapItr != adjacenyMap.end())
+		{
+			set<string>& children = adjacenyMapItr->second;
+			for(set<string>::iterator it = children.begin(); it!= children.end(); ++ it)
+			{
+				string child = *it;
+				if ((explored.find(child) == explored.end()) && !(found_in_frontier(child, visited)) ) //not in explored and not in frontier
+				{
+					if(goal_test(child, destinationNodes))
+					{
+						//as the current goal child is not added to queue
+						int total_cost = parentNodePtr->path_cost + bfs_stepCost + startTime;
+						cout << "goal found : " << child << " with cost : " << total_cost << " (with startTime = " << startTime << " )"<< endl;
+						ofs << child << " " << total_cost << endl;
+						//cout << "path to goal : " << child << " <- " ;
+						//cout << "parentNodePtr : " << parentNodePtr;
+						//cout << "parentNodePtr->parent : " << parentNodePtr->parent;
+						/*while(traversePtr!=NULL)
+						{
+							cout << " <- " << traversePtr->state;
+						    	
+							traversePtr = traversePtr->parent;
+						}*/
+						//compute total cost from root to child and write to output file
+						return;
+					}
+					
+					node childNode(child, parentNodePtr, parentNodePtr->path_cost + bfs_stepCost);
+					//cout << "child : " << child << "&childNode : " << &childNode << " parentNodePtr : " << parentNodePtr << " parentNodePtr->path_cost + bfs_stepCost : " << parentNodePtr->path_cost + bfs_stepCost << endl;
+					frontier.push(&childNode);visited.insert(child);
+				}
+			}
+		}
+		
+	}
+}

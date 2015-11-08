@@ -1,0 +1,45 @@
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+B 4
+D 6
+None

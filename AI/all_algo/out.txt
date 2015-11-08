@@ -1,0 +1,366 @@
+No of Test Cases : 9
+
+
+Test Case : 1
+src : A
+Destination Nodes are: B C D
+Middle Nodes are: E F G H I
+No of Pipes : 5
+Pipe 1 : A B 12 0
+Pipe 2 : A E 3 3 2-4 1-5 9-10
+Pipe 3 : E H 2 1 1-2
+Pipe 4 : H D 5 2 5-6 2-3
+Pipe 5 : I C 6 1 10-14
+Algo Start Time : 3
+AdjacencyMap :
+A :  B E
+E :  H
+H :  D
+I :  C
+Run BFS Search on source A
+Ravi : pushing to frontier : A with 
+********************************
+Ravi : popped from frontier : A
+Ravi : Added to explored set : { A ,  } 
+Ravi : processing A's child : B
+Ravi : child : B not in explored and not in frontier 
+goal found : B with cost : 4 (with startTime = 3 )
+path to goal : B <- A
+
+
+Test Case : 2
+Run DFS
+src : A
+Destination Nodes are: B C D
+Middle Nodes are: E F G H I
+No of Pipes : 5
+Pipe 1 : A B 12 0
+Pipe 2 : A E 3 3 2-4 1-5 9-10
+Pipe 3 : E H 2 1 1-2
+Pipe 4 : H D 5 2 5-6 2-3
+Pipe 5 : I C 6 1 10-14
+Algo Start Time : 3
+DfsAdjacencyMap :
+A :  E B
+E :  H
+H :  D
+I :  C
+Run DFS Search on source A
+stack push : A
+stack pop : A
+Added to explored set : { A ,  } 
+stack push : E
+goal found : B with cost : 4 (with startTime = 3 )
+path to goal : B <- A
+
+
+Test Case : 3
+Run UCS
+src : A
+Destination Nodes are: B C D
+Middle Nodes are: E F G H I
+No of Pipes : 5
+Pipe 1 : A B 12 0
+Pipe 2 : A E 3 3 2-4 1-5 9-10
+Pipe 3 : E H 2 1 1-2
+Pipe 4 : H D 5 2 5-6 2-3
+Pipe 5 : I C 6 1 10-14
+Algo Start Time : 3
+AdjacencyMap :
+A :  B E
+E :  H
+H :  D
+I :  C
+Run UCS Search on source A
+Ravi : pushing to frontier : A with 
+Ravi : NODE state : A parent : NULL path_cost : 0
+********************************
+Ravi : popped from frontier : A
+Ravi : NODE state : A parent : NULL path_cost : 0
+Ravi : Added to explored set : { A ,  } 
+Ravi : processing A's child : B
+Ravi : child : B not in explored and not in frontier 
+Ravi : found pipe_length : 12
+Ravi : pushing to frontier : B with path_cost : 12
+Ravi : NODE state : B parent : A path_cost : 12
+Ravi : processing A's child : E
+Ravi : child : E not in explored and not in frontier 
+Ravi : found pipe_length : 3
+Ravi : pushing to frontier : E with path_cost : 3
+Ravi : NODE state : E parent : A path_cost : 3
+********************************
+Ravi : popped from frontier : E
+Ravi : NODE state : E parent : A path_cost : 3
+Ravi : find a pipe bw : A and E
+cur_time at parent node( A ) is : 3 cur_time_24_hr : 3
+Length of Pipe : 3 No of OffPeriods : 3
+ (1, 5 )  (2, 4 )  (9, 10 ) 
+BadPipe : cur_time = 3 cur_time_24_hr : 3 is in OffPeriod : (1, 5 ) 
+********************************
+Ravi : popped from frontier : B
+Ravi : NODE state : B parent : A path_cost : 12
+Ravi : find a pipe bw : A and B
+cur_time at parent node( A ) is : 3 cur_time_24_hr : 3
+Length of Pipe : 12 No of OffPeriods : 0
+
+Goal is found at B
+goal found : B with cost : 15 (with startTime = 3 )
+path to goal : B <- A
+
+Test Case : 4
+src : P
+Destination Nodes are: Q R
+Middle Nodes are: L M N O
+No of Pipes : 5
+Pipe 1 : P L 10 0
+Pipe 2 : P N 5 2 3-4 6-9
+Pipe 3 : M Q 8 1 4-6
+Pipe 4 : O R 3 0
+Pipe 5 : N M 5 1 1-2
+Algo Start Time : 5
+AdjacencyMap :
+M :  Q
+N :  M
+O :  R
+P :  L N
+Run BFS Search on source P
+Ravi : pushing to frontier : P with 
+********************************
+Ravi : popped from frontier : P
+Ravi : Added to explored set : { P ,  } 
+Ravi : processing P's child : L
+Ravi : child : L not in explored and not in frontier 
+Ravi : processing P's child : N
+Ravi : child : N not in explored and not in frontier 
+********************************
+Ravi : popped from frontier : L
+Ravi : Added to explored set : { L , P ,  } 
+********************************
+Ravi : popped from frontier : N
+Ravi : Added to explored set : { L , N , P ,  } 
+Ravi : processing N's child : M
+Ravi : child : M not in explored and not in frontier 
+********************************
+Ravi : popped from frontier : M
+Ravi : Added to explored set : { L , M , N , P ,  } 
+Ravi : processing M's child : Q
+Ravi : child : Q not in explored and not in frontier 
+goal found : Q with cost : 8 (with startTime = 5 )
+path to goal : Q <- M <- N <- P
+
+
+Test Case : 5
+Run DFS
+src : P
+Destination Nodes are: Q R
+Middle Nodes are: L M N O
+No of Pipes : 5
+Pipe 1 : P L 10 0
+Pipe 2 : P N 5 2 3-4 6-9
+Pipe 3 : M Q 8 1 4-6
+Pipe 4 : O R 3 0
+Pipe 5 : N M 5 1 1-2
+Algo Start Time : 5
+DfsAdjacencyMap :
+M :  Q
+N :  M
+O :  R
+P :  N L
+Run DFS Search on source P
+stack push : P
+stack pop : P
+Added to explored set : { P ,  } 
+stack push : N
+stack push : L
+stack pop : L
+Added to explored set : { L , P ,  } 
+stack pop : N
+Added to explored set : { L , N , P ,  } 
+stack push : M
+stack pop : M
+Added to explored set : { L , M , N , P ,  } 
+goal found : Q with cost : 8 (with startTime = 5 )
+path to goal : Q <- M <- N <- P
+
+
+Test Case : 6
+Run UCS
+src : P
+Destination Nodes are: Q R
+Middle Nodes are: L M N O
+No of Pipes : 5
+Pipe 1 : P L 10 0
+Pipe 2 : P N 5 2 3-4 6-9
+Pipe 3 : M Q 8 1 4-6
+Pipe 4 : O R 3 0
+Pipe 5 : N M 5 1 1-2
+Algo Start Time : 5
+AdjacencyMap :
+M :  Q
+N :  M
+O :  R
+P :  L N
+Run UCS Search on source P
+Ravi : pushing to frontier : P with 
+Ravi : NODE state : P parent : NULL path_cost : 0
+********************************
+Ravi : popped from frontier : P
+Ravi : NODE state : P parent : NULL path_cost : 0
+Ravi : Added to explored set : { P ,  } 
+Ravi : processing P's child : L
+Ravi : child : L not in explored and not in frontier 
+Ravi : found pipe_length : 10
+Ravi : pushing to frontier : L with path_cost : 10
+Ravi : NODE state : L parent : P path_cost : 10
+Ravi : processing P's child : N
+Ravi : child : N not in explored and not in frontier 
+Ravi : found pipe_length : 5
+Ravi : pushing to frontier : N with path_cost : 5
+Ravi : NODE state : N parent : P path_cost : 5
+********************************
+Ravi : popped from frontier : N
+Ravi : NODE state : N parent : P path_cost : 5
+Ravi : find a pipe bw : P and N
+cur_time at parent node( P ) is : 5 cur_time_24_hr : 5
+Length of Pipe : 5 No of OffPeriods : 2
+ (3, 4 )  (6, 9 ) 
+Ravi : Added to explored set : { N , P ,  } 
+Ravi : update : parentMap[N] = P
+Ravi : processing N's child : M
+Ravi : child : M not in explored and not in frontier 
+Ravi : found pipe_length : 5
+Ravi : pushing to frontier : M with path_cost : 10
+Ravi : NODE state : M parent : N path_cost : 10
+********************************
+Ravi : popped from frontier : L
+Ravi : NODE state : L parent : P path_cost : 10
+Ravi : find a pipe bw : P and L
+cur_time at parent node( P ) is : 5 cur_time_24_hr : 5
+Length of Pipe : 10 No of OffPeriods : 0
+
+Ravi : Added to explored set : { L , N , P ,  } 
+Ravi : update : parentMap[L] = P
+********************************
+Ravi : popped from frontier : M
+Ravi : NODE state : M parent : N path_cost : 10
+Ravi : find a pipe bw : N and M
+cur_time at parent node( N ) is : 10 cur_time_24_hr : 10
+Length of Pipe : 5 No of OffPeriods : 1
+ (1, 2 ) 
+Ravi : Added to explored set : { L , M , N , P ,  } 
+Ravi : update : parentMap[M] = N
+Ravi : processing M's child : Q
+Ravi : child : Q not in explored and not in frontier 
+Ravi : found pipe_length : 8
+Ravi : pushing to frontier : Q with path_cost : 18
+Ravi : NODE state : Q parent : M path_cost : 18
+********************************
+Ravi : popped from frontier : Q
+Ravi : NODE state : Q parent : M path_cost : 18
+Ravi : find a pipe bw : M and Q
+cur_time at parent node( M ) is : 15 cur_time_24_hr : 15
+Length of Pipe : 8 No of OffPeriods : 1
+ (4, 6 ) 
+Goal is found at Q
+goal found : Q with cost : 23 (with startTime = 5 )
+path to goal : Q <- M <- N <- P
+
+Test Case : 7
+src : AA
+Destination Nodes are: BA
+Middle Nodes are: CA DA
+No of Pipes : 3
+Pipe 1 : AA BA 10 1 1-2
+Pipe 2 : AA CA 2 2 3-4 5-6
+Pipe 3 : CA BA 4 0
+Algo Start Time : 0
+AdjacencyMap :
+AA :  BA CA
+CA :  BA
+Run BFS Search on source AA
+Ravi : pushing to frontier : AA with 
+********************************
+Ravi : popped from frontier : AA
+Ravi : Added to explored set : { AA ,  } 
+Ravi : processing AA's child : BA
+Ravi : child : BA not in explored and not in frontier 
+goal found : BA with cost : 1 (with startTime = 0 )
+path to goal : BA <- AA
+
+
+Test Case : 8
+Run DFS
+src : AA
+Destination Nodes are: BA
+Middle Nodes are: CA DA
+No of Pipes : 3
+Pipe 1 : AA BA 10 1 1-2
+Pipe 2 : AA CA 2 2 3-4 5-6
+Pipe 3 : CA BA 4 0
+Algo Start Time : 0
+DfsAdjacencyMap :
+AA :  CA BA
+CA :  BA
+Run DFS Search on source AA
+stack push : AA
+stack pop : AA
+Added to explored set : { AA ,  } 
+stack push : CA
+goal found : BA with cost : 1 (with startTime = 0 )
+path to goal : BA <- AA
+
+
+Test Case : 9
+Run UCS
+src : AA
+Destination Nodes are: BA
+Middle Nodes are: CA DA
+No of Pipes : 3
+Pipe 1 : AA BA 10 1 1-2
+Pipe 2 : AA CA 2 2 3-4 5-6
+Pipe 3 : CA BA 4 0
+Algo Start Time : 0
+AdjacencyMap :
+AA :  BA CA
+CA :  BA
+Run UCS Search on source AA
+Ravi : pushing to frontier : AA with 
+Ravi : NODE state : AA parent : NULL path_cost : 0
+********************************
+Ravi : popped from frontier : AA
+Ravi : NODE state : AA parent : NULL path_cost : 0
+Ravi : Added to explored set : { AA ,  } 
+Ravi : processing AA's child : BA
+Ravi : child : BA not in explored and not in frontier 
+Ravi : found pipe_length : 10
+Ravi : pushing to frontier : BA with path_cost : 10
+Ravi : NODE state : BA parent : AA path_cost : 10
+Ravi : processing AA's child : CA
+Ravi : child : CA not in explored and not in frontier 
+Ravi : found pipe_length : 2
+Ravi : pushing to frontier : CA with path_cost : 2
+Ravi : NODE state : CA parent : AA path_cost : 2
+********************************
+Ravi : popped from frontier : CA
+Ravi : NODE state : CA parent : AA path_cost : 2
+Ravi : find a pipe bw : AA and CA
+cur_time at parent node( AA ) is : 0 cur_time_24_hr : 0
+Length of Pipe : 2 No of OffPeriods : 2
+ (3, 4 )  (5, 6 ) 
+Ravi : Added to explored set : { AA , CA ,  } 
+Ravi : update : parentMap[CA] = AA
+Ravi : processing CA's child : BA
+Ravi Raju : existing path from : AA to BA has path_cost : 10
+Ravi Raju : new path from : CA to BA has path_cost : 6
+Ravi : found and deleted node BA from frontier
+Ravi : Updated node BA with optimal new_path_cost : 6
+********************************
+Ravi : popped from frontier : BA
+Ravi : NODE state : BA parent : CA path_cost : 6
+Ravi : find a pipe bw : CA and BA
+cur_time at parent node( CA ) is : 2 cur_time_24_hr : 2
+Length of Pipe : 4 No of OffPeriods : 0
+
+Goal is found at BA
+goal found : BA with cost : 6 (with startTime = 0 )
+path to goal : BA <- CA <- AA

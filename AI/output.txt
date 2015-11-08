@@ -1,0 +1,59 @@
+Q 8
+B 4
+D 6
+None
+None
+B 4
+D 6
+None
+None
+B 4
+D 6
+None
+None
+B 4
+D 6
+None
+None
+B 4
+D 6
+None
+None
+B 4
+D 6
+None
+B 4
+D 6
+None
+Q 8
+B 4
+D 6
+None
+Q 8
+B 4
+D 6
+None
+Q 8
+B 4
+D 6
+None
+Q 8
+B 4
+D 6
+None
+Q 8
+B 4
+D 6
+None
+Q 8
+B 4
+D 6
+None
+Q 8
+B 4
+D 6
+None
+Q 8
+B 4
+D 6
+None

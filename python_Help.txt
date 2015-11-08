@@ -1,0 +1,10 @@
+http://www.python-course.eu/python3_course.php
+http://www.python-course.eu/python3_blocks.php
+http://www.python-course.eu/python3_sequential_data_types.php
+http://www.python-course.eu/python3_dictionaries.php
+http://www.python-course.eu/python3_variables.php
+https://pymotw.com/2/array/
+http://www.thegeekstuff.com/2013/08/python-array/
+http://www.thegeekstuff.com/2013/06/python-list/
+https://docs.python.org/3/library/array.html#array.array.extend
+http://coding.debuntu.org/python-iterating-through-array

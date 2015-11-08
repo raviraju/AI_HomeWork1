@@ -1,0 +1,191 @@
+No of Test Cases : 3
+
+
+Test Case : 1
+Run UCS
+src : AA
+Destination Nodes are: BA
+Middle Nodes are: CA DA
+No of Pipes : 3
+Pipe 1 : AA BA 10 1 1-2
+Pipe 2 : AA CA 2 2 3-4 5-6
+Pipe 3 : CA BA 4 0
+Algo Start Time : 0
+AdjacencyMap :
+AA :  BA CA
+CA :  BA
+Run UCS Search on source AA
+Ravi : pushing to frontier : AA with 
+Ravi : NODE state : AA parent : NULL path_cost : 0
+********************************
+Ravi : popped from frontier : AA
+Ravi : NODE state : AA parent : NULL path_cost : 0
+Ravi : Added to explored set : { AA ,  } 
+Ravi : processing AA's child : BA
+Ravi : child : BA not in explored and not in frontier 
+Ravi : found pipe_length : 10
+Ravi : pushing to frontier : BA with path_cost : 10
+Ravi : NODE state : BA parent : AA path_cost : 10
+Ravi : processing AA's child : CA
+Ravi : child : CA not in explored and not in frontier 
+Ravi : found pipe_length : 2
+Ravi : pushing to frontier : CA with path_cost : 2
+Ravi : NODE state : CA parent : AA path_cost : 2
+********************************
+Ravi : popped from frontier : CA
+Ravi : NODE state : CA parent : AA path_cost : 2
+Ravi : find a pipe bw : AA and CA
+cur_time at parent node( AA ) is : 0 cur_time_24_hr : 0
+Length of Pipe : 2 No of OffPeriods : 2
+ (3, 4 )  (5, 6 ) 
+Ravi : Added to explored set : { AA , CA ,  } 
+Ravi : update : parentMap[CA] = AA
+Ravi : processing CA's child : BA
+Ravi Raju : existing path from : AA to BA has path_cost : 10
+Ravi Raju : new path from : CA to BA has path_cost : 6
+Ravi : found and deleted node BA from frontier
+Ravi : Updated node BA with optimal new_path_cost : 6
+********************************
+Ravi : popped from frontier : BA
+Ravi : NODE state : BA parent : CA path_cost : 6
+Ravi : find a pipe bw : CA and BA
+cur_time at parent node( CA ) is : 2 cur_time_24_hr : 2
+Length of Pipe : 4 No of OffPeriods : 0
+
+Goal is found at BA
+goal found : BA with cost : 6 (with startTime = 0 )
+path to goal : BA <- CA <- AA
+
+Test Case : 2
+Run UCS
+src : S
+Destination Nodes are: G
+Middle Nodes are: A B
+No of Pipes : 4
+Pipe 1 : S A 2 0
+Pipe 2 : S B 1 0
+Pipe 3 : B G 1 1 1-2
+Pipe 4 : A B 2 0
+Algo Start Time : 0
+AdjacencyMap :
+A :  B
+B :  G
+S :  A B
+Run UCS Search on source S
+Ravi : pushing to frontier : S with 
+Ravi : NODE state : S parent : NULL path_cost : 0
+********************************
+Ravi : popped from frontier : S
+Ravi : NODE state : S parent : NULL path_cost : 0
+Ravi : Added to explored set : { S ,  } 
+Ravi : processing S's child : A
+Ravi : child : A not in explored and not in frontier 
+Ravi : found pipe_length : 2
+Ravi : pushing to frontier : A with path_cost : 2
+Ravi : NODE state : A parent : S path_cost : 2
+Ravi : processing S's child : B
+Ravi : child : B not in explored and not in frontier 
+Ravi : found pipe_length : 1
+Ravi : pushing to frontier : B with path_cost : 1
+Ravi : NODE state : B parent : S path_cost : 1
+********************************
+Ravi : popped from frontier : B
+Ravi : NODE state : B parent : S path_cost : 1
+Ravi : find a pipe bw : S and B
+cur_time at parent node( S ) is : 0 cur_time_24_hr : 0
+Length of Pipe : 1 No of OffPeriods : 0
+
+Ravi : Added to explored set : { B , S ,  } 
+Ravi : update : parentMap[B] = S
+Ravi : processing B's child : G
+Ravi : child : G not in explored and not in frontier 
+Ravi : found pipe_length : 1
+Ravi : pushing to frontier : G with path_cost : 2
+Ravi : NODE state : G parent : B path_cost : 2
+********************************
+Ravi : popped from frontier : A
+Ravi : NODE state : A parent : S path_cost : 2
+Ravi : find a pipe bw : S and A
+cur_time at parent node( S ) is : 0 cur_time_24_hr : 0
+Length of Pipe : 2 No of OffPeriods : 0
+
+Ravi : Added to explored set : { A , B , S ,  } 
+Ravi : update : parentMap[A] = S
+Ravi : processing A's child : B
+********************************
+Ravi : popped from frontier : G
+Ravi : NODE state : G parent : B path_cost : 2
+Ravi : find a pipe bw : B and G
+cur_time at parent node( B ) is : 1 cur_time_24_hr : 1
+Length of Pipe : 1 No of OffPeriods : 1
+ (1, 2 ) 
+BadPipe : cur_time = 1 cur_time_24_hr : 1 is in OffPeriod : (1, 2 ) 
+None of Destination can be reached
+
+
+Test Case : 3
+Run UCS
+src : A
+Destination Nodes are: C
+Middle Nodes are: B D
+No of Pipes : 4
+Pipe 1 : A B 1 0
+Pipe 2 : A D 2 0
+Pipe 3 : D B 3 0
+Pipe 4 : B C 2 1 0-3
+Algo Start Time : 0
+AdjacencyMap :
+A :  B D
+B :  C
+D :  B
+Run UCS Search on source A
+Ravi : pushing to frontier : A with 
+Ravi : NODE state : A parent : NULL path_cost : 0
+********************************
+Ravi : popped from frontier : A
+Ravi : NODE state : A parent : NULL path_cost : 0
+Ravi : Added to explored set : { A ,  } 
+Ravi : processing A's child : B
+Ravi : child : B not in explored and not in frontier 
+Ravi : found pipe_length : 1
+Ravi : pushing to frontier : B with path_cost : 1
+Ravi : NODE state : B parent : A path_cost : 1
+Ravi : processing A's child : D
+Ravi : child : D not in explored and not in frontier 
+Ravi : found pipe_length : 2
+Ravi : pushing to frontier : D with path_cost : 2
+Ravi : NODE state : D parent : A path_cost : 2
+********************************
+Ravi : popped from frontier : B
+Ravi : NODE state : B parent : A path_cost : 1
+Ravi : find a pipe bw : A and B
+cur_time at parent node( A ) is : 0 cur_time_24_hr : 0
+Length of Pipe : 1 No of OffPeriods : 0
+
+Ravi : Added to explored set : { A , B ,  } 
+Ravi : update : parentMap[B] = A
+Ravi : processing B's child : C
+Ravi : child : C not in explored and not in frontier 
+Ravi : found pipe_length : 2
+Ravi : pushing to frontier : C with path_cost : 3
+Ravi : NODE state : C parent : B path_cost : 3
+********************************
+Ravi : popped from frontier : D
+Ravi : NODE state : D parent : A path_cost : 2
+Ravi : find a pipe bw : A and D
+cur_time at parent node( A ) is : 0 cur_time_24_hr : 0
+Length of Pipe : 2 No of OffPeriods : 0
+
+Ravi : Added to explored set : { A , B , D ,  } 
+Ravi : update : parentMap[D] = A
+Ravi : processing D's child : B
+********************************
+Ravi : popped from frontier : C
+Ravi : NODE state : C parent : B path_cost : 3
+Ravi : find a pipe bw : B and C
+cur_time at parent node( B ) is : 1 cur_time_24_hr : 1
+Length of Pipe : 2 No of OffPeriods : 1
+ (0, 3 ) 
+BadPipe : cur_time = 1 cur_time_24_hr : 1 is in OffPeriod : (0, 3 ) 
+None of Destination can be reached
+0
